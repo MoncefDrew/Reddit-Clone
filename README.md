@@ -1,80 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-<body style="font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto;">
+# Breaddit
 
-  <h1>📣 Reddit Clone</h1>
-  <p>
-    A full-featured Reddit-style platform built with <strong>Next.js</strong>, <strong>React</strong>, <strong>Tailwind CSS</strong>, <strong>Prisma</strong>, and <strong>MySQL</strong> — supporting community creation, real-time interaction, and secure user authentication.
-  </p>
+A Reddit-style community platform built with Next.js, Prisma, and MySQL. Users can create communities, post content, vote, comment, and manage their profiles — all in a responsive, real-time interface.
 
-  <h2>🚀 Features</h2>
-  <ul>
-    <li><strong>🔐 Authentication:</strong> Secure login and registration using <strong>NextAuth.js</strong>.</li>
-    <li><strong>🧵 Subreddit-Style Communities:</strong>
-      <ul>
-        <li>Create and join communities</li>
-        <li>Post content and interact via comments</li>
-        <li>Upvote/downvote posts and comments</li>
-        <li>Customize personal profiles</li>
-      </ul>
-    </li>
-    <li><strong>🛠 Community Management:</strong> Admins can define rules to ensure a safe environment.</li>
-    <li><strong>📱 Responsive UI:</strong> Fully optimized for both desktop and mobile devices using Tailwind CSS.</li>
-    <li><strong>⚡ Real-Time Updates:</strong> Live post and vote updates with Redis caching for performance.</li>
-  </ul>
+---
 
-  <h2>🛠 Tech Stack</h2>
-  <ul>
-    <li><strong>Frontend:</strong> Next.js 14, React, Tailwind CSS</li>
-    <li><strong>Backend:</strong> Next.js API Routes, Prisma ORM, MySQL</li>
-    <li><strong>Authentication:</strong> NextAuth.js with Google Provider</li>
-    <li><strong>Caching & Realtime:</strong> Redis</li>
-    <li><strong>Deployment:</strong> Easily deployable on Vercel or your preferred platform</li>
-  </ul>
+## Features
 
-  <h2>🧑‍💻 Getting Started</h2>
-  <ol>
-    <li><strong>Clone the repository</strong>
-      <pre><code>git clone https://github.com/yourusername/reddit-clone.git
-cd reddit-clone</code></pre>
-    </li>
-    <li><strong>Install dependencies</strong>
-      <pre><code>npm install</code></pre>
-    </li>
-    <li><strong>Setup environment variables</strong>
-      <p>Create a <code>.env</code> file with the following required credentials:</p>
-      <ul>
-        <li><strong>DATABASE_URL</strong> from <a href="https://railway.app" target="_blank">Railway</a> (MySQL)</li>
-        <li><strong>UPLOADTHING_SECRET</strong> and <strong>UPLOADTHING_APP_ID</strong> from <a href="https://uploadthing.com" target="_blank">UploadThing</a></li>
-        <li><strong>GOOGLE_CLIENT_ID</strong> and <strong>GOOGLE_CLIENT_SECRET</strong> from your Google OAuth app</li>
-        <li><strong>NEXTAUTH_SECRET</strong> for securing NextAuth sessions</li>
-        <li><strong>REDIS_URL</strong> for real-time caching</li>
-      </ul>
-    </li>
-    <li><strong>Run the development server</strong>
-      <pre><code>npm run dev</code></pre>
-    </li>
-    <li><strong>Open in browser</strong>
-      <p>Visit <a href="http://localhost:3000">http://localhost:3000</a></p>
-    </li>
-  </ol>
+- **Authentication** — Login and registration via NextAuth.js with Google OAuth
+- **Communities** — Create, join, and manage subreddit-style groups with custom rules
+- **Posts & Comments** — Rich text posts with nested comments and upvote/downvote support
+- **Real-time Updates** — Live vote counts and post activity powered by Redis caching
+- **Profile Customization** — Users can personalize their public profiles
+- **Responsive Design** — Optimized for desktop and mobile with Tailwind CSS
 
-  <h2>📸 Screenshots</h2>
-<img src="https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-12-14.png" alt="Breaddit Screenshot" width="1200"/>
-<img src="https://github.com/MoncefDrew/Breaddit/blob/Master/public/Screenshot%20from%202025-05-04%2023-14-22.png" alt="Breaddit Screenshot" width="1200"/>
-<img src="https://github.com/MoncefDrew/Breaddit/blob/Master/public/Screenshot%20from%202025-05-04%2023-14-40.png" alt="Breaddit Screenshot" width="1200"/>
-<img src="https://github.com/MoncefDrew/Breaddit/blob/Master/public/Screenshot%20from%202025-05-04%2023-14-52.png" width="1200"/>
-<img src="https://github.com/MoncefDrew/Breaddit/blob/Master/public/Screenshot%20from%202025-05-04%2023-15-13.png" alt="Breaddit Screenshot" width="1200"/>
+---
 
-  ## 📚 Documentation
-  👉 [Frontend Features Ready for Implementation](/frontend-features.md)
+## Tech Stack
 
-  <h2>📄 License</h2>
-  <p>MIT License. Feel free to use and customize.</p>
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js 14, React, Tailwind CSS |
+| Backend | Next.js API Routes, Prisma ORM |
+| Database | MySQL (via Railway) |
+| Auth | NextAuth.js (Google Provider) |
+| Caching | Redis |
+| File Uploads | UploadThing |
 
-</body>
-</html>
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- A MySQL database (e.g. [Railway](https://railway.app))
+- A Redis instance
+- Google OAuth credentials
+- An [UploadThing](https://uploadthing.com) account
+
+### Installation
+
+```bash
+git clone https://github.com/MoncefDrew/Breaddit.git
+cd Breaddit
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file at the root of the project:
+
+```env
+DATABASE_URL=
+
+NEXTAUTH_SECRET=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
+UPLOADTHING_SECRET=
+UPLOADTHING_APP_ID=
+
+REDIS_URL=
+```
+
+### Run the App
+
+```bash
+# Push the database schema
+npx prisma db push
+
+# Start the development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Screenshots
+
+![Home feed](https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-12-14.png)
+
+![Community page](https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-14-22.png)
+
+![Post view](https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-14-40.png)
+
+![Comments](https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-14-52.png)
+
+![Profile](https://raw.githubusercontent.com/MoncefDrew/Breaddit/Master/public/Screenshot%20from%202025-05-04%2023-15-13.png)
+
+---
+
+## License
+
+MIT — free to use and modify.
